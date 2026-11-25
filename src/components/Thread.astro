@@ -1,0 +1,75 @@
+---
+// The one bold element: a line from आद्यन्त (beginning) to the contact form (end).
+// Place inside a position:relative container; it spans that container's full height.
+---
+
+<svg class="thread" aria-hidden="true" focusable="false">
+  <line class="thread-base" x1="50%" y1="0" x2="50%" y2="100%"></line>
+  <line class="thread-draw" x1="50%" y1="0" x2="50%" y2="100%"></line>
+</svg>
+
+<style>
+  .thread {
+    position: absolute;
+    top: calc(var(--hero-gap) + 0.5rem);
+    bottom: 0;
+    left: calc(var(--edge) + var(--thread-x) - 6px);
+    width: 12px;
+    height: calc(100% - var(--hero-gap) - 0.5rem);
+    overflow: visible;
+    pointer-events: none;
+  }
+
+  line {
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .thread-base {
+    stroke: var(--mist);
+  }
+
+  .thread-draw {
+    stroke: var(--thread);
+  }
+
+  @media (max-width: 767px) {
+    line {
+      stroke-width: 1.5;
+    }
+  }
+</style>
+
+<script>
+  // Scroll-linked draw. With reduced motion this never runs and the line stays fully drawn.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const svg = document.querySelector<SVGSVGElement>('.thread')!;
+    const line = svg.querySelector<SVGLineElement>('.thread-draw')!;
+    let len = 0;
+    let queued = false;
+
+    const draw = () => {
+      queued = false;
+      const box = svg.getBoundingClientRect();
+      // The tip of the line follows a point 60% down the viewport
+      const atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      const progress = atEnd ? 1 : Math.min(1, Math.max(0, (innerHeight * 0.6 - box.top) / box.height));
+      line.style.strokeDashoffset = String(len * (1 - progress));
+    };
+    const measure = () => {
+      len = line.getTotalLength();
+      line.style.strokeDasharray = String(len);
+      draw();
+    };
+    const onScroll = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(draw);
+      }
+    };
+
+    measure();
+    addEventListener('scroll', onScroll, { passive: true });
+    new ResizeObserver(measure).observe(svg);
+  }
+</script>

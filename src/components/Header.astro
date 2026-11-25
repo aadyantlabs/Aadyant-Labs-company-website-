@@ -1,0 +1,59 @@
+---
+---
+
+<header class="wrap">
+  <a class="brand" href="/">Aadyant Labs</a>
+  <nav aria-label="Main">
+    <a href="/#work">Work</a>
+    <a href="/#process">Process</a>
+    <a href="/#team">Team</a>
+    <a class="btn" href="/#contact">Start a project</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-2);
+    padding-top: var(--s-2);
+    padding-bottom: var(--s-2);
+  }
+
+  .brand {
+    font: 700 var(--t-20) / 1 var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.75rem 0;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: var(--s-3);
+  }
+
+  nav a:not(.btn) {
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.75rem 0;
+  }
+
+  nav a:not(.btn):hover {
+    color: var(--thread);
+    text-decoration: underline;
+  }
+
+  /* On phones only the button stays; the page is one scroll anyway */
+  @media (max-width: 639px) {
+    nav a:not(.btn) {
+      display: none;
+    }
+    .btn {
+      min-height: 44px;
+      padding: 0 1rem;
+    }
+  }
+</style>

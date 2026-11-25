@@ -1,0 +1,66 @@
+---
+import { services } from '../data/site';
+---
+
+<section id="services" class="stop" aria-labelledby="services-title">
+  <div class="col">
+    <div class="section-head">
+      <h2 id="services-title">What we build</h2>
+    </div>
+    <dl>
+      {
+        services.map((s) => (
+          <div class="row">
+            <dt>{s.name}</dt>
+            <dd class="inc">{s.includes}</dd>
+            <dd class="price">
+              {s.quoted ? 'Quoted per project' : s.from ? `From ${s.from}` : 'Quoted after a free call'}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  dl {
+    margin: 0;
+    border-top: 1px solid var(--mist);
+  }
+
+  .row {
+    display: grid;
+    gap: var(--s-1);
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  dt {
+    font: 650 var(--t-25) / 1.15 var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .inc {
+    color: var(--slate);
+  }
+
+  .price {
+    font-weight: 700;
+  }
+
+  @media (min-width: 900px) {
+    .row {
+      grid-template-columns: 2fr 3fr 1.8fr;
+      align-items: baseline;
+      gap: var(--s-4);
+    }
+    .price {
+      text-align: right;
+    }
+  }
+</style>

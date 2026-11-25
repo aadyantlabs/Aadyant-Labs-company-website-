@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found | Aadyant Labs" description="This page does not exist.">
+  <section class="wrap nf">
+    <div class="col">
+      <h1>This page does not exist.</h1>
+      <p><a href="/">Go back to the home page</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    padding-top: 6rem;
+    min-height: 50vh;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.8rem);
+  }
+  p {
+    margin-top: 1.5rem;
+  }
+</style>

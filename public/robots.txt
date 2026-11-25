@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aadyantlabs.dev/sitemap-index.xml

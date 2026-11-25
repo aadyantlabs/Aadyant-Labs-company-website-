@@ -1,0 +1,82 @@
+---
+import { team } from '../data/site';
+---
+
+<section id="team" class="stop" aria-labelledby="team-title">
+  <div class="col">
+    <div class="section-head">
+      <h2 id="team-title">Who builds it</h2>
+      <p class="muted">Engineers from MITE, Mangaluru. You talk directly to the people writing your code.</p>
+    </div>
+    <ul role="list">
+      {
+        team.map((m) => (
+          <li>
+            {m.photo ? (
+              <img src={m.photo} alt={`Photo of ${m.name}`} width="160" height="160" loading="lazy" />
+            ) : (
+              <span class="avatar" aria-hidden="true">
+                {m.name.charAt(0)}
+              </span>
+            )}
+            <div>
+              <h3>{m.name}</h3>
+              <p class="muted">{m.role}</p>
+              <a href={`https://github.com/${m.github}`}>
+                GitHub<span class="sr-only"> profile of {m.name}</span>
+              </a>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-4);
+  }
+
+  @media (min-width: 640px) {
+    ul {
+      grid-template-columns: repeat(2, minmax(0, 22rem));
+    }
+  }
+
+  li {
+    display: flex;
+    gap: var(--s-3);
+    align-items: center;
+  }
+
+  img,
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    flex: none;
+    object-fit: cover;
+  }
+
+  .avatar {
+    display: grid;
+    place-items: center;
+    background: var(--mist);
+    font: 650 var(--t-39) / 1 var(--font-display);
+    color: var(--slate);
+  }
+
+  h3 {
+    font-size: var(--t-20);
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 0;
+  }
+</style>

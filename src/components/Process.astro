@@ -1,0 +1,51 @@
+---
+import { steps } from '../data/site';
+---
+
+<section id="process" class="stop" aria-labelledby="process-title">
+  <div class="col">
+    <div class="section-head">
+      <h2 id="process-title">How a project runs</h2>
+    </div>
+    <ol>
+      {steps.map((s) => <li>{s}</li>)}
+    </ol>
+  </div>
+</section>
+
+<style>
+  /* The only numbered list on the site, because this really is a sequence */
+  ol {
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-3);
+    max-width: 40rem;
+  }
+
+  li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 3.25rem;
+    font-size: var(--t-20);
+    line-height: 1.4;
+  }
+
+  li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -0.1em;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--thread);
+    border-radius: 50%;
+    color: var(--thread);
+    font: 700 var(--t-16) / 1 var(--font-display);
+    background: var(--paper);
+  }
+</style>

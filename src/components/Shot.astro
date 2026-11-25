@@ -1,0 +1,67 @@
+---
+// A project screenshot in a light browser frame.
+// ponytail: renders a named frame until real screenshots land (Phase 0); then pass `src` from astro:assets.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  src?: ImageMetadata;
+  alt?: string;
+  large?: boolean;
+}
+
+const { title, src, alt = '', large = false } = Astro.props;
+---
+
+<div class:list={['shot', { large }]}>
+  <div class="bar" aria-hidden="true"><span></span><span></span><span></span></div>
+  {
+    src ? (
+      <Image src={src} alt={alt} widths={[400, 800, 1200]} sizes="(min-width: 1100px) 800px, 100vw" />
+    ) : (
+      <div class="empty" role="img" aria-label={`${title} screenshot to come`}>
+        <span>{title}</span>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .shot {
+    border: 1px solid var(--mist);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .bar {
+    display: flex;
+    gap: 6px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .bar span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mist);
+  }
+
+  .empty {
+    aspect-ratio: 16 / 10;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, var(--white), var(--paper));
+  }
+
+  .empty span {
+    font: 650 var(--t-25) / 1 var(--font-display);
+    color: var(--slate);
+  }
+
+  .large .empty span {
+    font-size: var(--t-39);
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Shot from './Shot.astro';
+
+const projects = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="work" class="stop" aria-labelledby="work-title">
+  <div class="col">
+    <div class="section-head">
+      <h2 id="work-title">Things we have built and shipped</h2>
+    </div>
+    <ul class="grid" role="list">
+      {
+        projects.map((p, i) => (
+          <li class:list={['item', `item-${i}`]}>
+            <Shot title={p.data.title} large={i === 0} />
+            <h3>{p.data.title}</h3>
+            <p class="muted">{p.data.summary}</p>
+            <a href={`/work/${p.id}/`}>
+              Read the case study<span class="sr-only">: {p.data.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--s-6) var(--s-4);
+  }
+
+  h3 {
+    margin-top: var(--s-2);
+  }
+
+  .item p {
+    margin: var(--s-1) 0;
+  }
+
+  .item a {
+    display: inline-block;
+    padding: 0.5rem 0;
+  }
+
+  /* One large, three smaller in varied sizes */
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .item-0 {
+      grid-column: 1 / -1;
+    }
+    .item-1 {
+      grid-column: span 4;
+    }
+    .item-2 {
+      grid-column: span 2;
+      align-self: end;
+    }
+    .item-3 {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  .item-0 h3 {
+    font-size: var(--t-31);
+  }
+</style>

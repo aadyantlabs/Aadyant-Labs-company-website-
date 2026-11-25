@@ -1,0 +1,179 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(var(--t-31), 4.5vw, var(--t-49));
+}
+
+h3 {
+  font-size: var(--t-25);
+}
+
+p {
+  margin: 0;
+  max-width: 65ch;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--thread);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--thread-dark);
+}
+
+:focus-visible {
+  outline: 3px solid var(--thread);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--edge);
+}
+
+/* Content column: starts after the thread's gutter */
+.col {
+  padding-left: var(--gutter);
+}
+
+.muted {
+  color: var(--slate);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--thread);
+  background: var(--thread);
+  color: var(--white);
+  font: 700 var(--t-16) / 1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--thread-dark);
+  border-color: var(--thread-dark);
+  color: var(--white);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--thread);
+}
+
+.btn-ghost:hover {
+  background: var(--mist);
+  color: var(--thread-dark);
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.skip:focus {
+  left: 0.5rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* A section on the thread: a marigold dot sits on the line at its start */
+.stop {
+  position: relative;
+  padding-top: var(--section-gap);
+}
+
+.stop::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--thread-x) - 6px);
+  top: calc(var(--section-gap) + 0.45em);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--marigold);
+  box-shadow: 0 0 0 4px var(--paper);
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .stop::before {
+    width: 8px;
+    height: 8px;
+    left: calc(var(--thread-x) - 4px);
+  }
+}
+
+.section-head {
+  margin-bottom: var(--s-4);
+}
+
+.section-head p {
+  margin-top: var(--s-2);
+}

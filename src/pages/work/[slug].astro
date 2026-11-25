@@ -1,0 +1,118 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Shot from '../../components/Shot.astro';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  return work.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { title, summary, client, built, stack, live, quote } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Base title={`${title} case study | Aadyant Labs`} description={`${title}: ${summary}`}>
+  <article class="wrap">
+    <div class="col">
+      <p class="back"><a href="/#work">All work</a></p>
+      <h1>{title}</h1>
+      <p class="lede muted">{summary}</p>
+      {live && <p class="live"><a class="btn" href={live}>Visit the live site</a></p>}
+
+      <div class="shot"><Shot title={title} large /></div>
+
+      <div class="body">
+        <section>
+          <h2>The client and their problem</h2>
+          <p class="client">{client}</p>
+          <Content />
+        </section>
+
+        <section>
+          <h2>What we built</h2>
+          <ul>{built.map((b) => <li>{b}</li>)}</ul>
+        </section>
+
+        {stack.length > 0 && (
+          <section>
+            <h2>Stack</h2>
+            <p>{stack.join(', ')}</p>
+          </section>
+        )}
+
+        {quote && (
+          <blockquote>
+            <p>{quote.text}</p>
+            <footer>{quote.by}</footer>
+          </blockquote>
+        )}
+      </div>
+
+      <p class="cta">
+        Need something like this? <a href="/#contact">Tell us what you want to build</a>.
+      </p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  article {
+    padding-top: var(--s-4);
+  }
+  .back a {
+    display: inline-block;
+    padding: 0.6rem 0;
+  }
+  h1 {
+    font-size: clamp(var(--t-39), 6vw, var(--t-61));
+    margin-top: var(--s-2);
+  }
+  .lede {
+    font-size: var(--t-20);
+    margin-top: var(--s-2);
+  }
+  .live {
+    margin-top: var(--s-3);
+  }
+  .shot {
+    margin: var(--s-6) 0;
+  }
+  .body {
+    display: grid;
+    gap: var(--s-6);
+    max-width: 46rem;
+  }
+  h2 {
+    font-size: var(--t-31);
+    margin-bottom: var(--s-2);
+  }
+  .body :global(p + p) {
+    margin-top: var(--s-2);
+  }
+  .client {
+    font-weight: 700;
+    margin-bottom: var(--s-2);
+  }
+  ul {
+    padding-left: 1.2rem;
+    display: grid;
+    gap: var(--s-1);
+  }
+  blockquote {
+    margin: 0;
+    padding-left: var(--s-3);
+    border-left: 3px solid var(--thread);
+    font-size: var(--t-20);
+  }
+  blockquote footer {
+    margin-top: var(--s-1);
+    color: var(--slate);
+    font-size: var(--t-16);
+  }
+  .cta {
+    margin-top: var(--s-6);
+    font-size: var(--t-20);
+  }
+</style>

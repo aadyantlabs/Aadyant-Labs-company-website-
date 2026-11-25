@@ -1,0 +1,59 @@
+:root {
+  /* Colour: checked for WCAG AA. Ink/Paper ~14:1, white/Thread 5.2:1, Thread/Paper 4.7:1, Slate/Paper 5.4:1. */
+  --paper: #f2f4f3;
+  --ink: #182041;
+  --thread: #0e7a6d;
+  --thread-dark: #0a5f55;
+  --marigold: #e3a21a; /* never for text */
+  --mist: #dce3e1;
+  --slate: #5a6475;
+  --white: #fff;
+
+  /* Type */
+  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-deva: 'Tiro Devanagari Sanskrit', serif;
+
+  /* Scale, 1.25 ratio */
+  --t-14: 0.875rem;
+  --t-16: 1rem;
+  --t-20: 1.25rem;
+  --t-25: 1.5625rem;
+  --t-31: 1.9375rem;
+  --t-39: 2.4375rem;
+  --t-49: 3.0625rem;
+  --t-61: 3.8125rem;
+
+  /* Space */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-6: 3rem;
+  --section-gap: 5rem;
+
+  /* Layout: the thread owns the gutter, content starts after it */
+  --max: 1200px;
+  --edge: 16px;
+  --gutter: 28px;
+  --thread-x: 6px;
+  --radius: 6px;
+  --hero-gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --edge: 32px;
+    --gutter: 96px;
+    --thread-x: 40px;
+    --section-gap: 6rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --gutter: calc((min(100vw, var(--max)) - 2 * var(--edge)) / 6); /* columns 1-2 of 12 */
+    --thread-x: 64px;
+    --section-gap: 8rem;
+  }
+}
