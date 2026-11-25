@@ -1,5 +1,6 @@
 ---
 title: Layora
+tag: AI product
 summary: An AI coding tracker with a leaderboard that keeps learners practising.
 client: Layora
 order: 4

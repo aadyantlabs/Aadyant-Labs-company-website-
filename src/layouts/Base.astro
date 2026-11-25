@@ -46,6 +46,9 @@ const org = {
     <meta property="og:image" content={new URL('/og-image.png', Astro.site)} />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(org)} />
+    <script is:inline>
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -54,5 +57,36 @@ const org = {
       <slot />
     </main>
     <Footer />
+    <script>
+      // Reveal on scroll. Elements stay visible if the observer never runs (no .motion class).
+      const io = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }),
+        { rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+      // Header gains a shadow once the page scrolls
+      const header = document.querySelector('.site-header')!;
+      const onScroll = () => header.classList.toggle('scrolled', scrollY > 12);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Pointer spotlight on dark bands
+      if (matchMedia('(pointer: fine)').matches) {
+        document.querySelectorAll<HTMLElement>('[data-spotlight]').forEach((el) =>
+          el.addEventListener('pointermove', (e) => {
+            const r = el.getBoundingClientRect();
+            el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+            el.style.setProperty('--my', `${e.clientY - r.top}px`);
+          }),
+        );
+      }
+    </script>
   </body>
 </html>

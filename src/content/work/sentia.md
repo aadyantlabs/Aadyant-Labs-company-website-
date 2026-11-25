@@ -1,5 +1,6 @@
 ---
 title: SENTIA
+tag: Event platform
 summary: An event platform for team registration, hostel allocation and QR check-in on the day.
 client: SENTIA event organisers
 order: 2

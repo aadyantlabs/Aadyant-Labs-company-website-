@@ -1,5 +1,6 @@
 ---
 title: Club Crumbs
+tag: Multi-club website
 summary: One website shared by three clubs, each with its own events and updates.
 client: Three college clubs
 order: 3

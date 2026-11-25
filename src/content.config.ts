@@ -7,6 +7,7 @@ const work = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(), // one line, shown on the home page card
+    tag: z.string(),
     client: z.string(),
     order: z.number(), // 1 = the large screenshot on the home page
     built: z.array(z.string()),

@@ -1,5 +1,6 @@
 ---
 title: Euphoria
+tag: Club portal
 summary: A club portal that handles registrations, payments and the event gallery in one place.
 client: Euphoria club
 order: 1
