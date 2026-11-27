@@ -1,0 +1,436 @@
+<title>Aadyant Labs Moodboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;800&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Unbounded:wght@500;800&family=Space+Grotesk:wght@400;500&family=Space+Mono&display=swap">
+<style>
+/* Layout: a neutral studio "wall" holding three self-contained direction panels, each a dark world of its own. */
+:root{
+  --bg:#F2F2F4; --fg:#16161A; --muted:#5E5E68; --line:#D9D9E0; --card:#FFFFFF;
+  --ui:"Manrope",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F0F12;--fg:#ECECF1;--muted:#9A9AA6;--line:#26262E;--card:#17171C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F0F12;--fg:#ECECF1;--muted:#9A9AA6;--line:#26262E;--card:#17171C;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--ui);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:56px}
+header.intro{display:grid;gap:14px;max-width:70ch}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,4.4vw,48px);line-height:1.08;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.intro p{margin:0;color:var(--muted)}
+nav.jump{display:flex;flex-wrap:wrap;gap:10px}
+nav.jump a{font-family:var(--mono);font-size:13px;color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+nav.jump a:hover,nav.jump a:focus-visible{border-color:var(--fg);outline:none}
+
+/* ---------- direction panels ---------- */
+.dir{border-radius:20px;overflow:hidden;background:var(--d-bg);color:var(--d-fg);display:grid;scroll-margin-top:24px}
+.d1{--d-bg:#05070B;--d-panel:#0C1118;--d-line:#1C2A36;--d-fg:#E6F1F7;--d-muted:#7F93A3;--d-a:#22E4FF;--d-b:#FF3D71;
+  --d-display:"Chakra Petch",sans-serif;--d-body:"IBM Plex Sans",sans-serif;--d-mono:"IBM Plex Mono",monospace;--d-radius:2px}
+.d2{--d-bg:#0D0A09;--d-panel:#17110E;--d-line:#2E221B;--d-fg:#F4E9DC;--d-muted:#A8968A;--d-a:#FFB547;--d-b:#FF6A4D;
+  --d-display:"Syne",sans-serif;--d-body:"Manrope",sans-serif;--d-mono:"JetBrains Mono",monospace;--d-radius:999px}
+.d3{--d-bg:#0C0A24;--d-panel:#161236;--d-line:#2A2560;--d-fg:#EEEBFF;--d-muted:#9C97C9;--d-a:#C8FF3D;--d-b:#8C6BFF;
+  --d-display:"Unbounded",sans-serif;--d-body:"Space Grotesk",sans-serif;--d-mono:"Space Mono",monospace;--d-radius:14px}
+
+.hero{position:relative;height:clamp(460px,58vw,620px);overflow:hidden;border-bottom:1px solid var(--d-line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.d1 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+.hero .copy{position:absolute;left:0;right:0;bottom:0;padding:28px clamp(18px,4vw,44px) clamp(22px,3.5vw,36px);
+  display:grid;gap:12px;background:linear-gradient(to top,var(--d-bg) 35%,transparent);z-index:2}
+.tag{position:absolute;top:18px;left:clamp(18px,4vw,44px);right:clamp(18px,4vw,44px);display:flex;justify-content:space-between;gap:12px;z-index:2;
+  font-family:var(--d-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--d-muted)}
+.tag b{color:var(--d-a);font-weight:400}
+.eyebrow{font-family:var(--d-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--d-a);min-height:1.2em}
+.headline{font-family:var(--d-display);font-weight:800;margin:0;line-height:1;letter-spacing:-.02em;text-wrap:balance;
+  font-size:clamp(30px,5.4vw,64px);max-width:16ch}
+.d1 .headline{font-weight:700;text-transform:uppercase;letter-spacing:.01em}
+.d3 .headline{font-size:clamp(26px,4.6vw,54px)}
+.sub{margin:0;font-family:var(--d-body);color:var(--d-muted);max-width:52ch}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta{font-family:var(--d-body);font-weight:500;font-size:15px;border:0;cursor:pointer;padding:13px 22px;border-radius:var(--d-radius);
+  background:var(--d-a);color:var(--d-bg);transition:box-shadow .3s}
+.cta:focus-visible,.ghost:focus-visible{outline:2px solid var(--d-fg);outline-offset:3px}
+.d1 .cta{clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+.d2 .cta:hover{box-shadow:0 0 40px -6px var(--d-a)}
+.d3 .cta:hover{box-shadow:6px 6px 0 var(--d-b)}
+.ghost{font-family:var(--d-body);font-size:15px;background:none;color:var(--d-fg);border:1px solid var(--d-line);padding:12px 20px;border-radius:var(--d-radius);cursor:pointer}
+
+.body{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1px;background:var(--d-line)}
+.cell{background:var(--d-bg);padding:26px clamp(18px,3vw,32px);display:grid;gap:16px;align-content:start;min-width:0}
+.cell h3{margin:0;font-family:var(--d-mono);font-size:12px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--d-muted)}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:10px}
+.sw button{all:unset;cursor:pointer;display:grid;gap:6px;font-family:var(--d-mono);font-size:11px;color:var(--d-muted)}
+.sw button:focus-visible{outline:2px solid var(--d-a);outline-offset:4px}
+.chip{height:56px;border-radius:8px;border:1px solid var(--d-line)}
+.sw b{color:var(--d-fg);font-weight:400;font-size:12px}
+.type .spec-d{font-family:var(--d-display);font-weight:800;font-size:40px;line-height:1}
+.d1 .type .spec-d{font-weight:700}
+.type .spec-b{font-family:var(--d-body);font-size:16px;margin:0}
+.type .spec-m{font-family:var(--d-mono);font-size:13px;color:var(--d-a)}
+.type small{font-family:var(--d-mono);font-size:11px;color:var(--d-muted);display:block;margin-top:4px}
+.notes{margin:0;padding:0;list-style:none;display:grid;gap:10px;font-family:var(--d-body);font-size:15px}
+.notes li{display:grid;grid-template-columns:64px 1fr;gap:12px}
+.notes li span{font-family:var(--d-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--d-muted);padding-top:3px}
+.fit{font-family:var(--d-body);font-size:15px;margin:0;display:grid;gap:8px}
+.fit p{margin:0}
+.fit .plus::before{content:"+ ";color:var(--d-a)}
+.fit .minus::before{content:"– ";color:var(--d-b)}
+
+/* ---------- compare ---------- */
+.compare{display:grid;gap:16px}
+.compare h2{margin:0;font-size:24px;letter-spacing:-.01em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.pick{font-weight:700}
+/* ---------- theme journey prototype ---------- */
+.journey{display:grid;gap:16px}
+.journey h2{margin:0;font-size:24px;letter-spacing:-.01em}
+.journey > p{margin:0;color:var(--muted);max-width:70ch}
+.modes{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.modes label{font-family:var(--mono);font-size:13px;border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.modes input{accent-color:var(--fg);margin:0}
+.modes label:has(input:checked){background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.modes label:has(input:focus-visible){outline:2px solid var(--fg);outline-offset:2px}
+.modes .sep{width:1px;height:22px;background:var(--line);margin-inline:4px}
+.stage{--j-bg:#0D0A09;--j-fg:#F4E9DC;--j-muted:#A8968A;--j-line:#2E221B;--j-a:#FFB547;--j-b:#FF6A4D;--j-display:"Syne",sans-serif;
+  position:relative;height:clamp(480px,70vh,620px);border-radius:20px;overflow:hidden;background:var(--j-bg);color:var(--j-fg)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage .hudname{position:absolute;top:14px;right:16px;z-index:3;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--j-bg);background:var(--j-a);padding:4px 10px;border-radius:999px}
+.scroller{position:absolute;inset:0;overflow-y:auto;z-index:2;overscroll-behavior:contain}
+.scene{min-height:100%;display:grid;align-content:end;gap:12px;padding:32px clamp(18px,4vw,44px) 40px;border-bottom:1px solid var(--j-line)}
+.scene .eyebrow{color:var(--j-a);font-family:var(--mono)}
+.scene h3{margin:0;font-family:var(--j-display);font-weight:800;font-size:clamp(28px,4.6vw,56px);line-height:1;letter-spacing:-.02em;max-width:18ch;text-wrap:balance}
+.scene p{margin:0;color:var(--j-muted);max-width:52ch}
+.scene .pill{justify-self:start;background:var(--j-a);color:var(--j-bg);border:0;padding:11px 20px;border-radius:999px;font:500 14px var(--ui);cursor:pointer}
+.scene .hint{font-family:var(--mono);font-size:12px;color:var(--j-muted)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);
+  font-family:var(--mono);font-size:13px;padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <span class="kicker">Aadyant Labs · Moodboard v1 · Round 2</span>
+    <h1>Three futuristic directions for the Aadyant Labs site</h1>
+    <p>Each panel shows that direction's colour, type and motion. The canvas at the top of each panel is a working preview of the hero idea: particles that reshape into RESORT, LAUNCH and EVENT, your three audiences. Move your cursor through them. Tap a colour to copy its hex.</p>
+    <nav class="jump" aria-label="Directions">
+      <a href="#deep-space">01 Deep Space</a><a href="#solar-luxe">02 Solar Luxe</a><a href="#night-bloom">03 Night Bloom</a><a href="#journey">Theme journey</a><a href="#compare">Compare</a>
+    </nav>
+  </header>
+
+  <!-- 01 -->
+  <section class="dir d1" id="deep-space" data-mode="1">
+    <div class="hero">
+      <canvas aria-hidden="true"></canvas>
+      <div class="tag"><span>01 · Deep Space</span><span>SYS <b>ONLINE</b> · 12.9716°N 77.5946°E</span></div>
+      <div class="copy">
+        <span class="eyebrow" data-scramble="Digital studio / est. 2026">Digital studio / est. 2026</span>
+        <h2 class="headline">Engineered to be remembered</h2>
+        <p class="sub">Websites and booking systems for resorts, new businesses and live events, built with the same tools as game studios.</p>
+        <div class="row"><button class="cta magnetic" type="button">Start a project</button><button class="ghost" type="button">See the work</button></div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="cell"><h3>Palette</h3><div class="sw" data-sw="Void #05070B|Hull #0C1118|Grid #1C2A36|Signal #E6F1F7|Cyan #22E4FF|Alert #FF3D71"></div></div>
+      <div class="cell type"><h3>Type</h3>
+        <div><div class="spec-d">ORBIT 2026</div><small>Display · Chakra Petch 700</small></div>
+        <div><p class="spec-b">Clear and technical, with no extra styling.</p><small>Body · IBM Plex Sans 400</small></div>
+        <div><div class="spec-m">// latency 42ms · uptime 99.98%</div><small>Data · IBM Plex Mono</small></div>
+      </div>
+      <div class="cell"><h3>Motion</h3><ul class="notes">
+        <li><span>Feel</span>Fast and precise. Elements snap into place.</li>
+        <li><span>Ease</span>expo.out, 0.45s</li>
+        <li><span>Detail</span>Scanlines, HUD corner brackets, readouts that count up</li></ul></div>
+      <div class="cell"><h3>Fit for your clients</h3><div class="fit">
+        <p class="plus">Instantly reads as "high-tech".</p>
+        <p class="minus">The most common tech-site look. Feels cold to resort owners.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="dir d2" id="solar-luxe" data-mode="2">
+    <div class="hero">
+      <canvas aria-hidden="true"></canvas>
+      <div class="tag"><span>02 · Solar Luxe</span><span>Golden hour, <b>always</b></span></div>
+      <div class="copy">
+        <span class="eyebrow" data-scramble="Digital studio for places & moments">Digital studio for places &amp; moments</span>
+        <h2 class="headline">We build places people want to stay</h2>
+        <p class="sub">Immersive websites for resorts, launches and events. Built from the future, warm enough to welcome guests.</p>
+        <div class="row"><button class="cta magnetic" type="button">Start a project</button><button class="ghost" type="button">See the work</button></div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="cell"><h3>Palette</h3><div class="sw" data-sw="Obsidian #0D0A09|Ember #17110E|Ash #2E221B|Sand #F4E9DC|Solar #FFB547|Coral #FF6A4D"></div></div>
+      <div class="cell type"><h3>Type</h3>
+        <div><div class="spec-d">Dusk/Dawn</div><small>Display · Syne 800</small></div>
+        <div><p class="spec-b">Warm, roomy and easy to read for guests and owners.</p><small>Body · Manrope 400</small></div>
+        <div><div class="spec-m">check-in 14:00 · 28°C · sea view</div><small>Detail · JetBrains Mono</small></div>
+      </div>
+      <div class="cell"><h3>Motion</h3><ul class="notes">
+        <li><span>Feel</span>Slow and glowing. Light drifts in like a sunset.</li>
+        <li><span>Ease</span>power3.inOut, 0.9–1.2s</li>
+        <li><span>Detail</span>Light blooms, soft grain, pill buttons that glow on hover</li></ul></div>
+      <div class="cell"><h3>Fit for your clients</h3><div class="fit">
+        <p class="plus">Feels both luxurious and futuristic, which suits resorts and events.</p>
+        <p class="plus">Rare among tech studios, so you'll stand out.</p>
+        <p class="minus">Harder to get right. Too much glow turns cheesy.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="dir d3" id="night-bloom" data-mode="3">
+    <div class="hero">
+      <canvas aria-hidden="true"></canvas>
+      <div class="tag"><span>03 · Night Bloom</span><span>Doors open <b>22:00</b></span></div>
+      <div class="copy">
+        <span class="eyebrow" data-scramble="Digital studio / loud on purpose">Digital studio / loud on purpose</span>
+        <h2 class="headline">Make the launch the event</h2>
+        <p class="sub">Bold, playful web experiences for new brands, festivals and the venues that host them.</p>
+        <div class="row"><button class="cta magnetic" type="button">Start a project</button><button class="ghost" type="button">See the work</button></div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="cell"><h3>Palette</h3><div class="sw" data-sw="Midnight #0C0A24|Velvet #161236|Haze #2A2560|Mist #EEEBFF|Lime #C8FF3D|Violet #8C6BFF"></div></div>
+      <div class="cell type"><h3>Type</h3>
+        <div><div class="spec-d">Bloom!</div><small>Display · Unbounded 800</small></div>
+        <div><p class="spec-b">Friendly geometric text that keeps up the energy.</p><small>Body · Space Grotesk 400</small></div>
+        <div><div class="spec-m">LINEUP 03 · 2,400 RSVPs</div><small>Detail · Space Mono</small></div>
+      </div>
+      <div class="cell"><h3>Motion</h3><ul class="notes">
+        <li><span>Feel</span>Punchy and springy. Things bounce in.</li>
+        <li><span>Ease</span>back.out(1.7), 0.5s</li>
+        <li><span>Detail</span>Hard offset shadows, stickers, marquee strips</li></ul></div>
+      <div class="cell"><h3>Fit for your clients</h3><div class="fit">
+        <p class="plus">Great for organizers and youth brands.</p>
+        <p class="minus">Can feel too loud for luxury resorts.</p></div></div>
+    </div>
+  </section>
+
+  <section class="journey" id="journey">
+    <h2>Theme journey prototype</h2>
+    <p>Scroll inside the frame below. In <b>Journey</b> mode the colours, the particles and the button colour change with each section. Pick a single theme to lock the whole site to it. Tick "Swap fonts" to see what changing typefaces between sections feels like.</p>
+    <div class="modes" role="radiogroup" aria-label="Theme mode">
+      <label><input type="radio" name="jmode" id="jm-journey" value="journey" checked> Journey</label>
+      <label><input type="radio" name="jmode" id="jm-deep" value="deep"> Deep Space</label>
+      <label><input type="radio" name="jmode" id="jm-solar" value="solar"> Solar Luxe</label>
+      <label><input type="radio" name="jmode" id="jm-bloom" value="bloom"> Night Bloom</label>
+      <span class="sep" aria-hidden="true"></span>
+      <label><input type="checkbox" id="jm-fonts"> Swap fonts</label>
+    </div>
+    <div class="stage">
+      <canvas aria-hidden="true"></canvas>
+      <span class="hudname" aria-live="polite">Solar Luxe</span>
+      <div class="scroller" tabindex="0" aria-label="Theme journey preview, scrollable">
+        <section class="scene" data-j="solar"><span class="eyebrow">01 · Hero</span><h3>We build places people want to stay</h3><p>The welcome. Warm and premium, where the brand starts.</p><span class="hint">↓ scroll inside this frame</span></section>
+        <section class="scene" data-j="solar"><span class="eyebrow">02 · Services</span><h3>Resorts. Launches. Live events.</h3><p>What we offer, still in the welcoming theme.</p></section>
+        <section class="scene" data-j="deep"><span class="eyebrow">03 · How we build</span><h3>Engineered to be remembered</h3><p>Process and tech stack. The site turns precise and technical to show our craft.</p></section>
+        <section class="scene" data-j="bloom"><span class="eyebrow">04 · Concept work</span><h3>Make the launch the event</h3><p>Showcase and events work. Energy turns up.</p></section>
+        <section class="scene" data-j="solar"><span class="eyebrow">05 · Contact</span><h3>Let's build yours</h3><p>Back to warm for the call to action.</p><button class="pill" type="button">Start a project</button></section>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare" id="compare">
+    <h2>Side by side</h2>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>01 Deep Space</th><th>02 Solar Luxe</th><th>03 Night Bloom</th></tr></thead>
+      <tbody>
+        <tr><td>Resort owners</td><td>Weak</td><td class="pick">Strong</td><td>Weak</td></tr>
+        <tr><td>New businesses</td><td>Good</td><td class="pick">Strong</td><td>Good</td></tr>
+        <tr><td>Event organizers</td><td>Good</td><td>Good</td><td class="pick">Strong</td></tr>
+        <tr><td>Stands out from other studios</td><td>Low</td><td class="pick">High</td><td>Medium</td></tr>
+        <tr><td>Room for heavy animation</td><td>High</td><td>High</td><td>High</td></tr>
+        <tr><td>Recommended</td><td></td><td class="pick">Yes</td><td>Borrow its energy for event pages</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin:0;color:var(--muted)">Reply with 1, 2 or 3, or a mix such as "2 with 3's buttons".</p>
+  </section>
+</div>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script>
+// Theme journey prototype: one theme object is the single source of truth for CSS vars AND canvas colours.
+(() => {
+  if (!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const THEMES = {
+    deep:  { name: 'Deep Space',  bg: '#05070B', fg: '#E6F1F7', muted: '#7F93A3', line: '#1C2A36', a: '#22E4FF', b: '#FF3D71', font: '"Chakra Petch",sans-serif', ease: 'expo.out',  dur: .45 },
+    solar: { name: 'Solar Luxe',  bg: '#0D0A09', fg: '#F4E9DC', muted: '#A8968A', line: '#2E221B', a: '#FFB547', b: '#FF6A4D', font: '"Syne",sans-serif',          ease: 'power3.inOut', dur: 1 },
+    bloom: { name: 'Night Bloom', bg: '#0C0A24', fg: '#EEEBFF', muted: '#9C97C9', line: '#2A2560', a: '#C8FF3D', b: '#8C6BFF', font: '"Unbounded",sans-serif',     ease: 'back.out(1.4)', dur: .6 }
+  };
+  const stage = document.querySelector('.stage'), scroller = stage.querySelector('.scroller'), label = stage.querySelector('.hudname');
+  const fontBox = document.getElementById('jm-fonts');
+  const cur = { bg: '#0D0A09', fg: '#F4E9DC', muted: '#A8968A', line: '#2E221B', a: '#FFB547', b: '#FF6A4D' };
+  let mode = 'journey', active = 'solar', tween, W, H, P = [], vis = false, raf, ready = false;
+
+  const paint = () => { for (const k in cur) stage.style.setProperty('--j-' + k, cur[k]); };
+  function apply(key) {
+    const t = THEMES[key]; active = key; label.textContent = t.name;
+    stage.style.setProperty('--j-display', fontBox.checked ? t.font : THEMES.solar.font);
+    tween && tween.kill();
+    const { bg, fg, muted, line, a, b } = t;
+    tween = gsap.to(cur, { bg, fg, muted, line, a, b, duration: reduce ? 0 : t.dur, ease: t.ease, onUpdate: () => { paint(); if (ready && (reduce || !vis)) frame(); } });
+  }
+
+  // journey: each scene owns a theme while it is the one in the middle of the frame
+  stage.querySelectorAll('.scene').forEach(s => ScrollTrigger.create({
+    trigger: s, scroller, start: 'top 55%', end: 'bottom 55%',
+    onToggle: self => { if (self.isActive && mode === 'journey') apply(s.dataset.j); }
+  }));
+
+  function setMode(m) {
+    mode = m;
+    try { localStorage.setItem('adyant-theme-mode', m); } catch (e) {}
+    if (m === 'journey') { const s = [...stage.querySelectorAll('.scene')].find(x => { const r = x.getBoundingClientRect(), sr = scroller.getBoundingClientRect(); return r.top <= sr.top + sr.height * .55 && r.bottom > sr.top + sr.height * .55; }); apply(s ? s.dataset.j : 'solar'); }
+    else apply(m);
+  }
+  document.querySelectorAll('input[name="jmode"]').forEach(r => r.addEventListener('change', () => setMode(r.value)));
+  fontBox.addEventListener('change', () => apply(active));
+
+  // ambient particles that read the same theme object
+  const cv = stage.querySelector('canvas'), ctx = cv.getContext('2d');
+  function size() { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+    P = Array.from({ length: W < 600 ? 140 : 320 }, () => ({ x: Math.random() * W, y: Math.random() * H, v: .2 + Math.random() * .8, r: Math.random() < .2 ? 2.2 : 1.2, alt: Math.random() < .25 })); }
+  function frame() {
+    ctx.fillStyle = cur.bg; ctx.fillRect(0, 0, W, H);
+    const speed = active === 'deep' ? 2.2 : active === 'bloom' ? 1.6 : .6;
+    for (const p of P) {
+      p.y -= p.v * speed; if (p.y < -4) { p.y = H + 4; p.x = Math.random() * W; }
+      ctx.fillStyle = p.alt ? cur.b : cur.a; ctx.globalAlpha = .7;
+      if (active === 'solar') { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill(); } else ctx.fillRect(p.x, p.y, p.r * 1.4, p.r * 1.4);
+    }
+    ctx.globalAlpha = 1;
+    if (vis && !reduce) raf = requestAnimationFrame(frame);
+  }
+  size(); ready = true; frame();
+  new IntersectionObserver(([e]) => { vis = e.isIntersecting; cancelAnimationFrame(raf); if (vis) frame(); }).observe(cv);
+  addEventListener('resize', () => { size(); frame(); });
+  try { const saved = localStorage.getItem('adyant-theme-mode'); if (saved && (saved === 'journey' || THEMES[saved])) { document.getElementById('jm-' + saved).checked = true; setMode(saved); } } catch (e) {}
+})();
+</script>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // swatches
+  const toast = document.querySelector('.toast');
+  const say = t => { toast.textContent = t; toast.classList.add('on'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('on'), 1400); };
+  document.querySelectorAll('[data-sw]').forEach(box => {
+    box.dataset.sw.split('|').forEach(s => {
+      const [name, hex] = s.split(' ');
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-label', `Copy ${name} ${hex}`);
+      b.innerHTML = `<span class="chip" style="background:${hex}"></span><b>${name}</b>${hex}`;
+      b.onclick = () => navigator.clipboard.writeText(hex).then(() => say(`Copied ${hex}`), () => say(hex));
+      box.appendChild(b);
+    });
+  });
+
+  // text scramble
+  const glyphs = '!<>-_\\/[]{}=+*^?#0123456789';
+  function scramble(el) {
+    if (reduce) return;
+    const final = el.dataset.scramble; let f = 0;
+    const tick = () => {
+      el.textContent = final.split('').map((c, i) => i < f / 2 || c === ' ' ? c : glyphs[(Math.random() * glyphs.length) | 0]).join('');
+      if (f++ < final.length * 2) requestAnimationFrame(tick); else el.textContent = final;
+    };
+    tick();
+  }
+  document.querySelectorAll('[data-scramble]').forEach(el => el.closest('.dir').addEventListener('pointerenter', () => scramble(el)));
+
+  // magnetic buttons
+  if (!reduce) document.querySelectorAll('.magnetic').forEach(b => {
+    b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect();
+      b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .3}px,${(e.clientY - r.top - r.height / 2) * .4}px)`; });
+    b.addEventListener('pointerleave', () => { b.style.transition = 'transform .4s cubic-bezier(.2,.9,.3,1.4)'; b.style.transform = '';
+      setTimeout(() => b.style.transition = '', 400); });
+  });
+
+  // particle heroes
+  const MODES = {
+    1: { font: '700 {s}px "Chakra Petch"', k: .09, damp: .76, trail: 1, size: 1.6, cols: ['#22E4FF', '#22E4FF', '#9FF5FF', '#FF3D71'], bg: '5,7,11', square: true },
+    2: { font: '800 {s}px Syne', k: .022, damp: .91, trail: .22, size: 1.5, cols: ['#FFB547', '#FF8F4A', '#FF6A4D', '#FFE2B0'], bg: '13,10,9', glow: true },
+    3: { font: '800 {s}px Unbounded', k: .15, damp: .68, trail: .4, size: 2, cols: ['#C8FF3D', '#C8FF3D', '#C8FF3D', '#8C6BFF'], bg: '12,10,36', square: true }
+  };
+  const WORDS = ['RESORT', 'LAUNCH', 'EVENT'];
+
+  function hero(section) {
+    const m = MODES[section.dataset.mode], cv = section.querySelector('canvas'), ctx = cv.getContext('2d');
+    const off = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+    let W, H, N, X, Y, VX, VY, TX, TY, C, targets = [], wi = 0, visible = false, mouse = { x: -9999, y: -9999 }, last = 0, raf;
+
+    function sample(word) {
+      off.canvas.width = W; off.canvas.height = H;
+      let s = Math.min(H * .34, W * .22);
+      off.font = m.font.replace('{s}', s);
+      const w = off.measureText(word).width; if (w > W * .86) { s *= W * .86 / w; off.font = m.font.replace('{s}', s); }
+      off.textAlign = 'center'; off.textBaseline = 'middle'; off.fillStyle = '#fff';
+      off.fillText(word, W / 2, H * .36);
+      const d = off.getImageData(0, 0, W, H).data, pts = [], step = W < 600 ? 3 : 4;
+      for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (d[(y * W + x) * 4 + 3] > 128) pts.push(x, y);
+      return pts;
+    }
+    function setup() {
+      const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+      W = Math.round(r.width); H = Math.round(r.height);
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      N = W < 600 ? 700 : 1600;
+      X = new Float32Array(N); Y = new Float32Array(N); VX = new Float32Array(N); VY = new Float32Array(N);
+      TX = new Float32Array(N); TY = new Float32Array(N); C = new Uint8Array(N);
+      for (let i = 0; i < N; i++) { X[i] = Math.random() * W; Y[i] = Math.random() * H; C[i] = (Math.random() * m.cols.length) | 0; }
+      targets = WORDS.map(sample); assign();
+    }
+    function assign() {
+      const p = targets[wi], n = p.length / 2;
+      for (let i = 0; i < N; i++) { const j = ((Math.random() * n) | 0) * 2; TX[i] = p[j] + (Math.random() - .5) * 1.5; TY[i] = p[j + 1] + (Math.random() - .5) * 1.5; }
+    }
+    function draw() {
+      ctx.fillStyle = `rgba(${m.bg},${m.trail})`; ctx.fillRect(0, 0, W, H);
+      ctx.globalCompositeOperation = m.glow ? 'lighter' : 'source-over';
+      for (let i = 0; i < N; i++) {
+        const dx = X[i] - mouse.x, dy = Y[i] - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 9000) { const f = (9000 - d2) / 9000 * 2.2; VX[i] += dx / Math.sqrt(d2 + 1) * f; VY[i] += dy / Math.sqrt(d2 + 1) * f; }
+        VX[i] = (VX[i] + (TX[i] - X[i]) * m.k) * m.damp; VY[i] = (VY[i] + (TY[i] - Y[i]) * m.k) * m.damp;
+        X[i] += VX[i]; Y[i] += VY[i];
+        ctx.fillStyle = m.cols[C[i]];
+        if (m.square) ctx.fillRect(X[i], Y[i], m.size, m.size);
+        else { ctx.globalAlpha = .55; ctx.beginPath(); ctx.arc(X[i], Y[i], m.size, 0, 6.283); ctx.fill(); ctx.globalAlpha = 1; }
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      if (section.dataset.mode === '1') hud();
+    }
+    function hud() {
+      const b = 18, x0 = W * .08, y0 = H * .12, x1 = W * .92, y1 = H * .6;
+      ctx.strokeStyle = 'rgba(34,228,255,.5)'; ctx.lineWidth = 1; ctx.beginPath();
+      [[x0, y0, 1, 1], [x1, y0, -1, 1], [x0, y1, 1, -1], [x1, y1, -1, -1]].forEach(([x, y, sx, sy]) => { ctx.moveTo(x, y + b * sy); ctx.lineTo(x, y); ctx.lineTo(x + b * sx, y); });
+      ctx.stroke(); ctx.fillStyle = 'rgba(127,147,163,.9)'; ctx.font = '11px "IBM Plex Mono"';
+      ctx.fillText(`TGT ${WORDS[wi]} · N=${N}`, x0, y1 + 16);
+    }
+    function loop(t) {
+      if (!visible) return;
+      if (t - last > 3400) { last = t; wi = (wi + 1) % WORDS.length; assign(); }
+      draw(); raf = requestAnimationFrame(loop);
+    }
+    function still() { for (let i = 0; i < N; i++) { X[i] = TX[i]; Y[i] = TY[i]; } ctx.fillStyle = `rgb(${m.bg})`; ctx.fillRect(0, 0, W, H); draw(); }
+
+    setup();
+    if (reduce) { still(); addEventListener('resize', () => { setup(); still(); }); return; }
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; cancelAnimationFrame(raf); if (visible) { last = performance.now(); raf = requestAnimationFrame(loop); } }).observe(cv);
+    const hero = cv.parentElement;
+    hero.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+    hero.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
+    let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(setup, 200); });
+  }
+
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => document.querySelectorAll('.dir').forEach(hero));
+})();
+</script>

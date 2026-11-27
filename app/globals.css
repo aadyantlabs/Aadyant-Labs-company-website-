@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* "side" layout: wide AND landscape. The hero text takes the left column and the particle shape the right.
+   Must match the `side` test in components/Experience.tsx. */
+@custom-variant side (@media (min-width: 900px) and (min-aspect-ratio: 13/10));
+
+/* Theme values live in --t-* (set per theme in layout.tsx, then animated by ThemeController).
+   Not `@theme inline`: utilities must resolve the variables at runtime so theme switches propagate. */
+@theme {
+  --color-bg: var(--t-bg);
+  --color-surface: var(--t-surface);
+  --color-line: var(--t-line);
+  --color-fg: var(--t-fg);
+  --color-muted: var(--t-muted);
+  --color-accent: var(--t-accent);
+  --color-accent2: var(--t-accent2);
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+body {
+  background: var(--t-bg);
+  color: var(--t-fg);
+}
+::selection {
+  background: var(--t-accent);
+  color: var(--t-bg);
+}
+:focus-visible {
+  outline: 2px solid var(--t-accent);
+  outline-offset: 3px;
+}
+
+/* Reveals: hidden only while .reveal is on <html> (set pre-paint, handed to GSAP by Reveals.tsx).
+   Opacity, not visibility, so screen readers can still read content that hasn't animated in yet. */
+.reveal [data-reveal],
+.reveal [data-split] {
+  opacity: 0;
+}
+
+/* Intro: first visit only. Content waits while the particles form the "A", then fades in. */
+main,
+header {
+  transition: opacity 0.9s ease;
+}
+.intro main,
+.intro header {
+  opacity: 0;
+}
+#intro {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.intro #intro {
+  opacity: 1;
+}
+
+/* Full-screen menu dialog */
+dialog.menu {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--t-fg);
+}
+dialog.menu::backdrop {
+  background: transparent;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}

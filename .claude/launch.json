@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "astro", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 4321 }
+    { "name": "web", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3000 },
+    { "name": "moodboard", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "5178", "--directory", "design"], "port": 5178 }
   ]
 }
